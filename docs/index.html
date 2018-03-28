@@ -12,7 +12,7 @@
 
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
-
+	<link rel="stylesheet" href="css/main.css">
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
@@ -50,17 +50,88 @@
 			</section>
 
 			<section>
-					<h2>Introduction</h2>
-					<section>
-							<h3>What is Vuejs</h3>
-							<a href="https://vuejs.org/v2/guide/index.html">From the docs: </a>
-		
-							<blockquote>
-								Vue is a progressive framework for building user interfaces.
-							</blockquote>
-					</section>
+				<h2>Introduction</h2>
+				<section>
+					<h3>What is Vuejs</h3>
+					<a href="https://vuejs.org/v2/guide/index.html">From the docs: </a>
 
+					<blockquote>
+						Vue is a progressive framework for building user interfaces.
+					</blockquote>
 				</section>
+
+			</section>
+			<section>
+				<h3>Data Binding</h3>
+				<ul>
+					<li>Interpolations (sự thêm vào)</li>
+					<li>Directives</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Data Binding - Interpolations</h3>
+				<pre>
+					<code>
+							
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h3>Data Binding - Directives</h3>
+				<blockquote>
+					Directives are special attributes with the v- prefix.
+				</blockquote>
+				<pre>
+					<code class="html">
+			<p v-if="seen">Now you see me</p>
+					</code>
+					<code class="html">
+			<a v-bind:href="'http://localhost:3000/'"> ... </a>
+
+			<input type="radio" v-bind:value="value1" v-bind:name="'radio-1'">
+			<input type="radio" v-bind:value="value2" v-bind:name="'radio-1'">
+
+			<button type="button" v-on:click="handleFunction"></button>
+					</code>
+					</pre>
+			</section>
+
+			<section>
+				<h3>Data Binding - Directives - Shorthand</h3>
+				<blockquote>
+					Directives are special attributes with the v- prefix.
+				</blockquote>
+				<pre>
+					<code class="html">
+			<p v-if="seen">Now you see me</p>
+					</code>
+					<code class="html">
+			<a :href="'http://localhost:3000/'"> ... </a>
+	
+			<input type="radio" :value="value1" :name="'radio-1'">
+			<input type="radio" :value="value2" :name="'radio-1'">
+	
+			<button type="button" @click="handleFunction"></button>
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h3>Component</h3>
+				<pre>
+					<code class="javascript">
+	Vue.component('button-counter', {
+		data: function () {
+			return {count: 0}
+		},
+		template: 
+			`<button v-on:click="count++">You clicked me {{ count }} times.</button>`
+	})
+					</code>
+				</pre>
+			</section>
 
 			<section>
 				<ul>
@@ -423,7 +494,7 @@
 	<script>
 		// More info https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
-			width: 1024,
+			width: '100%',
 			history: true,
 
 			// More info https://github.com/hakimel/reveal.js#dependencies
