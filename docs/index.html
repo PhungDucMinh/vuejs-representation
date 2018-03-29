@@ -32,7 +32,7 @@
 
 				<p>
 					<small>Minh Phung,
-						<a href="http://www.tpssoft.com/" target="_blank">Tps Solution Company</a>
+						<a href="http://www.tpssoft.com/" target="_blank">TPS Solution Company</a>
 					</small>
 				</p>
 			</section>
@@ -61,65 +61,107 @@
 				</section>
 
 			</section>
-			<section>
-				<h3>Data Binding</h3>
-				<ul>
-					<li>Interpolations (sự thêm vào)</li>
-					<li>Directives</li>
-				</ul>
-			</section>
 
 			<section>
-				<h3>Data Binding - Interpolations</h3>
-				<pre>
-					<code>
-							
-					</code>
-				</pre>
-			</section>
-
-			<section>
-				<h3>Data Binding - Directives</h3>
+				<h3>How it work</h3>
 				<blockquote>
-					Directives are special attributes with the v- prefix.
+					Vue compiles the templates into Virtual DOM render functions.
 				</blockquote>
+			</section>
+
+			<section class="template-syntax">
+				<h3>Template Syntax</h3>
 				<pre>
 					<code class="html">
-			<p v-if="seen">Now you see me</p>
+		<span>Message: {{ msg }}</span>
+
+		<span v-html="rawHtml"></span>
+
+		<p v-if="seen">Now you see me</p>
+
+		<a v-bind:href="'http://localhost:3000/'"> ... </a>
+
+		<input type="radio" v-bind:value="value1" v-bind:name="'radio-1'">
+		<input type="radio" v-bind:value="value2" v-bind:name="'radio-1'">
+
+		<button type="button" v-on:click="handleFunction"></button>
 					</code>
+					</pre>
+			</section>
+
+			<section class="template-syntax-shorthand">
+				<h3>Template Syntax - Shorthand</h3>
+				<pre>
 					<code class="html">
-			<a v-bind:href="'http://localhost:3000/'"> ... </a>
+		<span>Message: {{ msg }}</span>
 
-			<input type="radio" v-bind:value="value1" v-bind:name="'radio-1'">
-			<input type="radio" v-bind:value="value2" v-bind:name="'radio-1'">
+		<span v-html="rawHtml"></span>
 
-			<button type="button" v-on:click="handleFunction"></button>
+		<p v-if="seen">Now you see me</p>
+
+		<a :href="'http://localhost:3000/'"> ... </a>
+
+		<input type="radio" :value="value1" :name="'radio-1'">
+		<input type="radio" :value="value2" :name="'radio-1'">
+
+		<button type="button" @click="handleFunction"></button>
 					</code>
 					</pre>
 			</section>
 
 			<section>
-				<h3>Data Binding - Directives - Shorthand</h3>
-				<blockquote>
-					Directives are special attributes with the v- prefix.
-				</blockquote>
+				<h3>Template Syntax - Data</h3>
 				<pre>
-					<code class="html">
-			<p v-if="seen">Now you see me</p>
+					<code class="javascript">
+		new Vue({
+			el: '#app',
+			data: {
+				msg: 'Hello Vue.js!',
+				rawHtml: '<p>This is raw html</p>',
+				seen: true,
+				value1: '1',
+				value2: '2',},
+			methods: {
+				handleFunction: function() {
+					this.seen = false;
+					this.rawHtml = "<p>I have click the button</p>"
+				}}})
 					</code>
-					<code class="html">
-			<a :href="'http://localhost:3000/'"> ... </a>
-	
-			<input type="radio" :value="value1" :name="'radio-1'">
-			<input type="radio" :value="value2" :name="'radio-1'">
-	
-			<button type="button" @click="handleFunction"></button>
+				</pre>
+			</section>
+
+			<section>
+				<h3>Template Syntax - Demo</h3>
+				<blockquote>https://jsfiddle.net/ytw0onok/</blockquote>
+			</section>
+
+			<section class="list-rendering">
+				<h3>List Rendering</h3>
+				<pre>
+					<code  class="html">
+				<ul id="example-1">
+					<li v-for="item in items">
+					{{ item.message }}
+					</li>
+				</ul>
+					</code>
+					<code class="javascript">
+				var example1 = new Vue({
+					el: '#example-1',
+					data: {
+						items: [
+						{ message: 'Foo' },
+						{ message: 'Bar' }
+						]
+					}
+					})
 					</code>
 				</pre>
 			</section>
 
 			<section>
 				<h3>Component</h3>
+				<blockquote>A component is essentially a Vue instance with pre-defined options</blockquote>
 				<pre>
 					<code class="javascript">
 	Vue.component('button-counter', {
