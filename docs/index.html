@@ -160,87 +160,89 @@
 			</section>
 
 			<section>
+				<h3>
+					List Rendering - Demo
+				</h3>
+				<blockquote>https://jsfiddle.net/8t9hwwp6/2/</blockquote>
+			</section>
+
+			<section>
 				<h3>Component</h3>
 				<blockquote>A component is essentially a Vue instance with pre-defined options</blockquote>
 				<pre>
 					<code class="javascript">
-	Vue.component('button-counter', {
-		data: function () {
-			return {count: 0}
-		},
-		template: 
-			`<button v-on:click="count++">You clicked me {{ count }} times.</button>`
-	})
+		Vue.component('button-counter', {
+			data: function () {
+				return {count: 0}
+			},
+			template: 
+				`<button v-on:click="count++">
+					You clicked me {{ count }} times.
+				</button>`
+		})
 					</code>
 				</pre>
 			</section>
 
 			<section>
-				<ul>
-					<li>Vue instance</li>
-					<li>
-						Components
-						<ul>
-							<li>Global registration</li>
-							<li>Local registration</li>
-						</ul>
-					</li>
-				</ul>
+				<h3>Component - Passing Data to Child Components with Props</h3>
+				<pre>
+					<code class="html">
+						
+		<parent-component>
+			<!-- kebab-case -->
+			<button-counter v-bind:initial-count="20"></button-counter>
+		</parent-component>
+					</code>
+				</pre>
 			</section>
 
 			<section>
-				<ul>
-					<li>
-						Data
-						<ul>
-							<li>Props &amp; data</li>
-							<li>Computed</li>
-							<li>Watchers</li>
-						</ul>
-					</li>
-					<li>Bindings</li>
-				</ul>
+				<h3>Component - Passing Data to Child Components with Props</h3>
+				<pre>
+					<code class="javascript">
+			Vue.component('button-counter', {
+				data: function () {
+					return {count: this.initialCount}
+				},
+				props: {
+					initialCount: {
+						type: Number,
+						default: 0
+					}
+				}
+				template: 
+					`...`
+			})
+					</code>
+				</pre>
 			</section>
 
 			<section>
-				<ul>
-					<li>Tips &amp; tricks</li>
-					<li>Bonus examples</li>
-				</ul>
+				<h3>Component - Passing Data to Child Components with Props - Demo</h3>
+				<blockquote>https://jsfiddle.net/coabm482/7/</blockquote>
 			</section>
 
 			<section>
-				<h2>Intro</h2>
-
-				<ul>
-					<li>Basics of
-						<code>Vue</code> 🚀</li>
-					<li>Not using
-						<cod>.vue</code> files</li>
-					<li>using existing DOM as templates</li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>What</h2>
-				<section>
-					<a href="https://vuejs.org/v2/guide/index.html">From the docs: </a>
-
-					<blockquote>
-						Vue is a progressive framework for building user interfaces.
-					</blockquote>
-				</section>
-
-				<section>
-					<ul>
-						<li>Binds data / states to the DOM</li>
-						<li class="fragment">Reactive: data changes > DOM changes</li>
-						<li class="fragment">A Vue instance/component works like a (view)model. Populating and mutating its own data.</li>
-						<li class="fragment">The attached DOM reacts accordingly. </li>
-					</ul>
-				</section>
+				<h3>Component - Sending Messages to Parents with Events</h3>
+				<pre>
+					<code class="javascript">
+		Vue.component('button-counter', {
+			data: {}, props: {},
+			methods: {
+				handleClick: function() 
+					{ this.count++; this.$emit("change", this.count);  }
+			},
+			template: 
+				`<button v-on:click="handleClick">
+						You clicked me {{ count }} times.
+					</button>`
+		})
+					</code>
+				</pre>
 
 			</section>
+
 			<section>
 				<h2>Why</h2>
 
@@ -257,25 +259,6 @@
 					<li class="fragment">No one million thousand dependencies</li>
 				</ul>
 
-			</section>
-
-			<section>
-				<h2>Vue instance</h2>
-
-				<ul>
-					<li>An application is started with one Vue instance.</li>
-					<li class="fragment">
-						Often refered as the
-						<code>vm</code>, for view model
-						<br />
-						<small>(remember, depending on the view model, the DOM is manipulated).</small>
-					</li>
-					<li class="fragment">only one instance should be needed per page</li>
-				</ul>
-
-				<p class="fragment">
-					<a href="http://codepen.io/demotime/pen/yMQKaE" target="_blank">Demo: My first VueJS instance</a>
-				</p>
 			</section>
 
 			<section>
