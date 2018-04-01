@@ -37,20 +37,17 @@
 				</p>
 			</section>
 			<section>
-				<h3>Topics</h3>
+				<h3>Content</h3>
 				<ul>
 					<li>Introduction</li>
-					<li>Vue Instance</li>
-					<li>Template Syntax</li>
-					<li>Listing Rendering</li>
-					<li>Event Handling</li>
-					<li>Form Input Handling</li>
-					<li>Components</li>
+					<li>Syntax</li>
+					<li>Component</li>
 				</ul>
 			</section>
 
 			<section>
 				<h2>Introduction</h2>
+
 				<section>
 					<h3>What is Vuejs</h3>
 					<a href="https://vuejs.org/v2/guide/index.html">From the docs: </a>
@@ -60,14 +57,25 @@
 					</blockquote>
 				</section>
 
+				<section>
+					<h3>How it work</h3>
+					<blockquote>
+						Vue compiles the templates into Virtual DOM render functions.
+					</blockquote>
+				</section>
 			</section>
 
 			<section>
-				<h3>How it work</h3>
-				<blockquote>
-					Vue compiles the templates into Virtual DOM render functions.
-				</blockquote>
+				<h2>Syntax</h2>
+
+				<ul>
+					<li>Template Syntax</li>
+					<li>Data</li>
+					<li>List Rendering</li>
+				</ul>
+
 			</section>
+
 
 			<section class="template-syntax">
 				<h3>Template Syntax</h3>
@@ -110,7 +118,7 @@
 			</section>
 
 			<section>
-				<h3>Template Syntax - Data</h3>
+				<h3>Data Syntax</h3>
 				<pre>
 					<code class="javascript">
 		new Vue({
@@ -136,7 +144,7 @@
 			</section>
 
 			<section class="list-rendering">
-				<h3>List Rendering</h3>
+				<h3>Syntax - List Rendering</h3>
 				<pre>
 					<code  class="html">
 				<ul id="example-1">
@@ -161,14 +169,43 @@
 
 			<section>
 				<h3>
-					List Rendering - Demo
+					Syntax - List Rendering - Demo
 				</h3>
 				<blockquote>https://jsfiddle.net/8t9hwwp6/2/</blockquote>
 			</section>
 
 			<section>
-				<h3>Component</h3>
-				<blockquote>A component is essentially a Vue instance with pre-defined options</blockquote>
+				<h3>Two-way bindings</h3>
+
+				<pre>
+					<code class="html">
+			<input v-model="message" placeholder="edit me">
+			<p>Message is: {{ message }}</p>
+					</code>
+				</pre>
+				<blockquote>https://jsfiddle.net/7ywyvL3s/2/</blockquote>
+			</section>
+
+			<section>
+				<h2>Component</h2>
+
+				<ul>
+					<li>Introduction</li>
+					<li>
+						<div>Design Component</div>
+						<ul>
+							<li>Data - Props</li>
+							<li>Passing Data - From Parent To Child</li>
+							<li>Passing Data - From Child To Parent</li>
+						</ul>
+					</li>
+
+				</ul>
+			</section>
+
+			<section>
+				<h3>Component - Introduction</h3>
+				<blockquote>Component is reusable Vue instance with a name</blockquote>
 				<pre>
 					<code class="javascript">
 		Vue.component('button-counter', {
@@ -182,23 +219,18 @@
 		})
 					</code>
 				</pre>
+				<blockquote>https://vuejs.org/v2/guide/components.html</blockquote>
 			</section>
 
 			<section>
-				<h3>Component - Passing Data to Child Components with Props</h3>
-				<pre>
-					<code class="html">
-						
-		<parent-component>
-			<!-- kebab-case -->
-			<button-counter v-bind:initial-count="20"></button-counter>
-		</parent-component>
-					</code>
-				</pre>
+				<h3>Design Component - Data vs Props</h3>
+				<blockquote>Data is the component internal state</blockquote>
+				<blockquote>Props are meant to be propagated and managed from parent components</blockquote>
+				<!-- <blockquote>https://stackoverflow.com/questions/35548434/component-data-vs-its-props-in-vuejs</blockquote> -->
 			</section>
 
 			<section>
-				<h3>Component - Passing Data to Child Components with Props</h3>
+				<h3>Design Component - Data vs Props</h3>
 				<pre>
 					<code class="javascript">
 			Vue.component('button-counter', {
@@ -219,12 +251,27 @@
 			</section>
 
 			<section>
-				<h3>Component - Passing Data to Child Components with Props - Demo</h3>
+				<h3>Design Component - Passing Data - From Parent To Child</h3>
+				<pre>
+					<code class="html">
+						
+		<parent-component>
+			<!-- kebab-case -->
+			<button-counter v-bind:initial-count="20"></button-counter>
+		</parent-component>
+					</code>
+				</pre>
+			</section>
+
+
+
+			<section>
+				<h3>Design Component - Passing Data - From Parent To Child - Demo</h3>
 				<blockquote>https://jsfiddle.net/coabm482/7/</blockquote>
 			</section>
 
 			<section>
-				<h3>Component - Sending Messages to Parents with Events</h3>
+				<h3>Design Component - Passing Data - From Child To Parent</h3>
 				<pre>
 					<code class="javascript">
 		Vue.component('button-counter', {
@@ -244,272 +291,35 @@
 			</section>
 
 			<section>
-				<h2>Why</h2>
+				<h3>Design Component - Passing Data - From Child To Parent</h3>
 
-				<ul>
-					<li>Fast
-						<small>
-							<a href="https://vuejs.org/v2/guide/comparison.html" target="_blank">comparison</a>
-						</small>
-					</li>
-					<li class="fragment">Easy to learn</li>
-					<li class="fragment">Easy to write (no `.jsx`, although you can use `.vue`)</li>
-					<li class="fragment">Easy to install</li>
-					<li class="fragment">Detailed, clean and understandable docs</li>
-					<li class="fragment">No one million thousand dependencies</li>
-				</ul>
-
+				<pre>
+					<code class="html">
+						
+	<parent-component>
+		<!-- kebab-case -->
+		<button-counter 
+			v-bind:initial-count="20"
+			v-on:change="handleCounterChange">
+		</button-counter>
+	</parent-component>
+					</code>
+					<code class="javascript">
+		methods: {
+			handleCounterChange: function(count) {
+				// TO DO 
+			}
+		}
+					</code>
+				</pre>
 			</section>
 
 			<section>
-				<h2>Components</h2>
+				<h3>Design Component - Passing Data - From Child To Parent - Demo</h3>
 
-				<section>
-					<a href="https://vuejs.org/v2/guide/components.html" target="_blank">From the docs:</a>
-					<blockquote>
-						<p> a high level, components are custom elements that Vue’s compiler attaches behavior to</p>
-					</blockquote>
-				</section>
-
-				<section>
-					<ul>
-						<li>Components live inside a
-							<code>Vue</code> instance</li>
-						<li class="fragment">Create your own tag</li>
-						<li class="fragment">
-							Components are reusable
-							<br />
-							<small>(also inside the same instance)</small>
-						</li>
-
-						<li class="fragment">
-							<a href="http://codepen.io/demotime/pen/gmQedx" target="_blank">Demo</a>
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Global registration</h3>
-					<ul>
-						<li>Registrate global to use it anywhere in the
-							<code>Vue</code> instance</li>
-						<li>No need to let the instance know which components are used</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Global registration</h3>
-					<pre><code class="javascript" data-trim contenteditable>
-							Vue.component('my-custom-component', { 
-							  mounted() {
-							    //
-							  },
-							});
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Local registration</h3>
-					<ul>
-						<li>Only create a config object, aka the definition</li>
-						<li>Make the component only available in the scope of another instance / component</li>
-					</ul>
-					<p>
-						<small>
-							<a href="https://vuejs.org/v2/guide/components.html#Local-Registration" target="_blank">Docs</a>
-						</small>
-					</p>
-				</section>
-
-				<section>
-					<h3>Local registration</h3>
-
-					<pre><code class="javascript" data-trim contenteditable>
-							// component definition
-							const myComponent = {
-							  mounted() {
-							    //
-							  },
-							};
-
-							// usage in an instance
-							new Vue({
-							  components: {
-							    my-custom-component': myComponent,
-							  },
-							});
-					</code></pre>
-					<a href="http://codepen.io/demotime/pen/gmQedx" target="_blank">Demo</a>
-				</section>
+				<blockquote>https://jsfiddle.net/coabm482/14/</blockquote>
 			</section>
 
-			<section>
-				<h2>Props &amp; data</h2>
-
-				<section>
-					<ul>
-						<li>The core of a
-							<code>Vue</code> instance / component</li>
-						<li>Two different purposes</li>
-
-						<li>
-							<a href="http://codepen.io/demotime/pen/dvQedZ" target="_blank">Demo data &amp; props</a>
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Data</h3>
-
-					<ul>
-						<li>Scoped to the component</li>
-						<li>Should not be altered from outside the component</li>
-						<li>Can't receive data from parent</li>
-						<li>Can pass data to child components</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Props 1/2</h3>
-					<ul>
-						<li>VueJS uses one way data flow, from parent to child</li>
-						<li>Parent passes
-							<code>data</code> to child</li>
-						<li>Child receives it as a
-							<code>prop</code>
-						</li>
-						<li>Parent changes
-							<code>data</code>,
-							<code>prop</code> changes in child *</li>
-						<li>Child can't directly alter its own
-							<code>props</code>
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Props 2/2</h3>
-					<blockquote>A child component needs to explicitly declare the props it expects to receive using the props option</blockquote>
-					<small>
-						<a href="https://vuejs.org/v2/guide/components.html#Props" target="_blank">Docs</a>
-					</small>
-
-					<p>
-						* Two different type of props: dynamic &amp; static
-					</p>
-				</section>
-
-				<section>
-					<h3>Computed properties 1/2</h3>
-					<ul>
-						<li>Return a property, based on other
-							<code>props</code> or
-							<code>data</code>
-						</li>
-						<li>Computed properties are reactive</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3>Computed properties 2/2</h3>
-					<pre><code class="javascript" data-trim contenteditable>
-							// Component JS
-							data() {
-							  return {
-							    firstName: 'Bertus',
-							    lastName: 'Stijgerpijp',
-							  };
-							},
-
-							computed: {
-							  fullName() {
-							    return `${this.firstName} ${this.lastName}`;
-							  },
-							},
-						</code></pre>
-
-					<pre><code class="html" data-trim contenteditable>
-							// HTML
-							{{ fullName }}
-						</code></pre>
-				</section>
-
-				<section>
-					<a href="http://codepen.io/demotime/pen/dvQedZ" target="_blank">Demo data &amp; props</a>
-				</section>
-			</section>
-
-			<section>
-				<h2>Bindings</h2>
-				<ul>
-					<li>
-						<b>events:</b>
-						<br />
-						<small>Easily bind click, input, etc events on elements</small>
-					</li>
-					<li>
-						<b>classes:</b>
-						<br />
-						<small>Add or remove classes based on the data</small>
-					</li>
-					<li>
-						<b>states:</b>
-						<br />
-						<small>Display or hide elements based on the data</small>
-					</li>
-					<li>
-						<b>model:</b>
-						<br />
-						<small>Bind a form input directy to a data property</small>
-					</li>
-				</ul>
-				<p>
-					<a href="http://codepen.io/demotime/pen/mWQjqO" target="_blank">Bindings demo</a>
-				</p>
-
-			</section>
-
-			<section>
-				<h2>Tips &amp; tricks</h2>
-				<ul>
-					<li>
-						<code>v-cloak</code> attribute &amp; style
-						<br />
-						<small>Hide HTML until
-							<code>Vue</code> rendered the component (
-							<a href="https://vuejs.org/v2/api/#v-cloak" target="_blank">docs</a>)</small>
-					</li>
-
-					<li>
-						<code>inline-template</code> attribute
-						<br />
-						<small>Bind components to existing DOM elements (
-							<a href="https://vuejs.org/v2/guide/components.html#Inline-Templates" target="_blank">docs</a>)</small>
-					</li>
-
-					<li>
-						Vue Devtools
-						<br />
-						<small>Extremely handy tool for Chrome to inspect components and their data / props (
-							<a href="https://github.com/vuejs/vue-devtools" target="_blank">Github</a>)</small>
-					</li>
-
-
-				</ul>
-			</section>
-
-			<section>
-				<h2>Bonus examples</h2>
-				<ul>
-					<li>
-						<a href="http://codepen.io/demotime/pen/YZRvJo" target="_blank">List rendering</a>
-					</li>
-					<li>
-						<a href="http://codepen.io/demotime/pen/VpVGZp" target="_blank">Movie search</a>
-					</li>
-				</ul>
-
-			</section>
 		</div>
 	</div>
 
