@@ -320,6 +320,93 @@
 				<blockquote>https://jsfiddle.net/coabm482/14/</blockquote>
 			</section>
 
+
+			<section>
+				<h2>End or Continue?</h2>
+			</section>
+
+			<section>
+				<h2>Practice</h2>
+
+				<section>
+					<h3>What we want</h3>
+					<img src="images/component_design_ui.png" />
+				</section>
+				<section>
+					<h3>What we got</h3>
+					<pre>
+						<code class="javascript">
+[
+	{category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+	{category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+	{category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+	{category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+	{category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+	{category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+];
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Step 1 - Break The UI Into A Component Hierarchy</h3>
+					<img src="images/component_design_ui_step_1.png" />
+				</section>
+
+				<section>
+					<h3>Step 1 - Break The UI Into A Component Hierarchy</h3>
+					<pre>
+						<code class="html">
+			<filterable-product-table>
+				<search-bar></search-bar>
+				<product-table>
+					<product-category-row></product-category-row> <!-- array -->
+					<product-row></product-row>  <!-- array -->
+				</product-table>
+			</filterable-product-table>
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h3>Step 2 - Build A Static Version </h3>
+					<blockquote>https://jsfiddle.net/s3vho06o/34/</blockquote>
+				</section>
+
+				<section>
+					<h3>Step 3: Identify what is data, what is props</h3>
+					<ul>
+						<li>Is it passed in from a parent via props? If so, it probably isn’t data.</li>
+						<li>Does it remain unchanged over time? If so, it probably isn’t data.</li>
+						<li>Can you compute it based on any other data or props in your component? If so, it isn’t data.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Step 3: Identify what is data, what is props - result</h3>
+
+					<ul>
+						<li>The search text the user has entered in search-bar component</li>
+						<li>The value of the checkbox in search-bar component</li>
+						<li>The products in filterable-product-table component</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Step 4: Update component base on data and props</h3>
+
+					<blockquote>https://jsfiddle.net/ksrjxm4m/26/</blockquote>
+					
+				</section>
+
+				<section>
+					<h3>Reference</h3>
+					<blockquote>https://reactjs.org/docs/thinking-in-react.html</blockquote>
+				</section>
+			</section>
+			<section>
+				<h2>Thank you!</h2>
+			</section>
 		</div>
 	</div>
 
