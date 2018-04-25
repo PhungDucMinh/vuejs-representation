@@ -17,9 +17,7 @@ export default {
   components: { SearchBar, ProductTable },
   data() {
     return {
-      msg: "Welcome to Your Tech Talk",
       products: [],
-
       isShowStockProduct: false,
       filterText: ""
     };
