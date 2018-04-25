@@ -27,12 +27,10 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h3>Introduction to</h3>
 				<h1>VueJS</h1>
-
 				<p>
-					<small>Minh Phung,
-						<a href="http://www.tpssoft.com/" target="_blank">TPS Solution Company</a>
+					<small>BU2 - Minh Phung,
+						<a href="http://www.tpssoft.com/" target="_blank">TPS Software Solutions</a>
 					</small>
 				</p>
 			</section>
@@ -46,10 +44,9 @@
 			</section>
 
 			<section>
-				<h2>Introduction</h2>
 
 				<section>
-					<h3>What is Vuejs</h3>
+					<h2>Introduction</h2>
 					<a href="https://vuejs.org/v2/guide/index.html">From the docs: </a>
 
 					<blockquote>
@@ -69,16 +66,17 @@
 				<h2>Syntax</h2>
 
 				<ul>
-					<li>Template Syntax</li>
+					<li>Template</li>
 					<li>Data</li>
-					<li>List Rendering</li>
+					<li>Methods</li>
+					
 				</ul>
 
 			</section>
 
 
 			<section class="template-syntax">
-				<h3>Template Syntax</h3>
+				<h3>Template</h3>
 				<pre>
 					<code class="html">
 		<span>Message: {{ msg }}</span>
@@ -98,7 +96,7 @@
 			</section>
 
 			<section class="template-syntax-shorthand">
-				<h3>Template Syntax - Shorthand</h3>
+				<h3>Template - Shorthand Syntax</h3>
 				<pre>
 					<code class="html">
 		<span>Message: {{ msg }}</span>
@@ -118,7 +116,7 @@
 			</section>
 
 			<section>
-				<h3>Data Syntax</h3>
+				<h3>Data + Methods</h3>
 				<pre>
 					<code class="javascript">
 		new Vue({
@@ -143,8 +141,17 @@
 				<blockquote>https://jsfiddle.net/ytw0onok/</blockquote>
 			</section>
 
+			<section>
+				<h2>Other Cool Syntax</h2>
+
+				<ul>
+					<li>List Rendering</li>
+					<li>Form Input Bindings</li>
+				</ul>
+			</section>
+
 			<section class="list-rendering">
-				<h3>Syntax - List Rendering</h3>
+				<h3>List Rendering</h3>
 				<pre>
 					<code  class="html">
 				<ul id="example-1">
@@ -169,21 +176,21 @@
 
 			<section>
 				<h3>
-					Syntax - List Rendering - Demo
+					List Rendering - Demo
 				</h3>
-				<blockquote>https://jsfiddle.net/8t9hwwp6/2/</blockquote>
+				<blockquote>https://jsfiddle.net/twpxxssn/</blockquote>
 			</section>
 
 			<section>
-				<h3>Two-way bindings</h3>
+				<h3>Form Input Bindings</h3>
 
 				<pre>
 					<code class="html">
-			<input v-model="message" placeholder="edit me">
+			<input type="text" v-model="message" placeholder="edit me">
 			<p>Message is: {{ message }}</p>
 					</code>
 				</pre>
-				<blockquote>https://jsfiddle.net/7ywyvL3s/2/</blockquote>
+				<blockquote>https://jsfiddle.net/g6hv86b3/</blockquote>
 			</section>
 
 			<section>
@@ -192,7 +199,7 @@
 				<ul>
 					<li>Introduction</li>
 					<li>
-						<div>Design Component</div>
+						<div>Working With Component</div>
 						<ul>
 							<li>Data - Props</li>
 							<li>Passing Data - From Parent To Child</li>
@@ -206,6 +213,12 @@
 			<section>
 				<h3>Component - Introduction</h3>
 				<blockquote>Component is reusable Vue instance with a name</blockquote>
+
+				
+			</section>
+
+			<section>
+				<h3>Component - Introduction</h3>
 				<pre>
 					<code class="javascript">
 		Vue.component('button-counter', {
@@ -218,19 +231,30 @@
 				</button>`
 		})
 					</code>
+					<code>
+		<div id="app">						
+		<!-- outer html -->						
+			<button-counter></button-counter>
+		<!-- end outer html -->
+		</div>
+					</code>
 				</pre>
+			</section>
+
+			<section>
+				<h3>Component - Introduction</h3>
 				<blockquote>https://vuejs.org/v2/guide/components.html</blockquote>
 			</section>
 
 			<section>
-				<h3>Design Component - Data vs Props</h3>
+				<h3>Working With Component - Data vs Props</h3>
 				<blockquote>Data is the component internal state</blockquote>
-				<blockquote>Props are meant to be propagated and managed from parent components</blockquote>
+				<blockquote>Props are meant to be passed and managed from parent components</blockquote>
 				<!-- <blockquote>https://stackoverflow.com/questions/35548434/component-data-vs-its-props-in-vuejs</blockquote> -->
 			</section>
 
 			<section>
-				<h3>Design Component - Data vs Props</h3>
+				<h3>Working With Component - Data vs Props</h3>
 				<pre>
 					<code class="javascript">
 			Vue.component('button-counter', {
@@ -251,7 +275,7 @@
 			</section>
 
 			<section>
-				<h3>Design Component - Passing Data - From Parent To Child</h3>
+				<h3>Working With Component - Passing Data - From Parent To Child</h3>
 				<pre>
 					<code class="html">
 						
@@ -266,12 +290,12 @@
 
 
 			<section>
-				<h3>Design Component - Passing Data - From Parent To Child - Demo</h3>
-				<blockquote>https://jsfiddle.net/coabm482/7/</blockquote>
+				<h3>Working With Component - Passing Data - From Parent To Child - Demo</h3>
+				<blockquote>https://jsfiddle.net/bd2zqd0b/</blockquote>
 			</section>
 
 			<section>
-				<h3>Design Component - Passing Data - From Child To Parent</h3>
+				<h3>Working With Component - Passing Data - From Child To Parent</h3>
 				<pre>
 					<code class="javascript">
 		Vue.component('button-counter', {
@@ -291,7 +315,7 @@
 			</section>
 
 			<section>
-				<h3>Design Component - Passing Data - From Child To Parent</h3>
+				<h3>Working With Component - Passing Data - From Child To Parent</h3>
 
 				<pre>
 					<code class="html">
@@ -315,14 +339,14 @@
 			</section>
 
 			<section>
-				<h3>Design Component - Passing Data - From Child To Parent - Demo</h3>
+				<h3>Working With Component - Passing Data - From Child To Parent - Demo</h3>
 
-				<blockquote>https://jsfiddle.net/coabm482/14/</blockquote>
+				<blockquote>https://jsfiddle.net/Lccpx5bv/</blockquote>
 			</section>
 
 
 			<section>
-				<h2>End or Continue?</h2>
+				<h2>Question or Continue?</h2>
 			</section>
 
 			<section>
@@ -370,7 +394,7 @@
 
 				<section>
 					<h3>Step 2 - Build A Static Version </h3>
-					<blockquote>https://jsfiddle.net/s3vho06o/34/</blockquote>
+					<blockquote>https://jsfiddle.net/5rzyp24b/</blockquote>
 				</section>
 
 				<section>
