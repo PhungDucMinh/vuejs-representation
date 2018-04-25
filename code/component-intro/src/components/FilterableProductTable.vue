@@ -1,24 +1,30 @@
 <template>
   <div>
-        <search-bar></search-bar>
-        <product-table v-bind:products="products"></product-table>
+        <search-bar 
+            v-on:show-product-change="handleIsShowStockProductChange" 
+            v-on:filter-text-change="handleFilterTextChange">
+        </search-bar>
+        <product-table v-bind:products="filteredProducts"></product-table>
 	</div>
 </template>
 
 <script>
-import SearchBar from './SearchBar';
-import ProductTable from './ProductTable';
+import SearchBar from "./SearchBar";
+import ProductTable from "./ProductTable";
 
 export default {
   name: "FilterableProductTable",
-  components: {SearchBar, ProductTable},
+  components: { SearchBar, ProductTable },
   data() {
     return {
       msg: "Welcome to Your Tech Talk",
-      products: []
+      products: [],
+
+      isShowStockProduct: false,
+      filterText: ""
     };
   },
-  created: function() {
+  mounted: function() {
     this.products = [
       {
         category: "Sporting Goods",
@@ -57,60 +63,34 @@ export default {
         name: "Nexus 7"
       }
     ];
+  },
+  methods: {
+    handleIsShowStockProductChange: function(isShowStockProduct) {
+      this.isShowStockProduct = isShowStockProduct;
+    },
+    handleFilterTextChange: function(filterText) {
+      this.filterText = filterText;
+    }
+  },
+  computed: {
+    filteredProducts: function() {
+      return this.products.reduce(
+        function(cummulator, currentProduct) {
+          if (
+            (!this.filterText ||
+              currentProduct.name
+                .toLowerCase()
+                .indexOf(this.filterText.toLowerCase()) !== -1) &&
+            (this.isShowStockProduct ? currentProduct.stocked === true : true)
+          ) {
+            cummulator.push(currentProduct);
+          }
+
+          return cummulator;
+        }.bind(this),
+        []
+      );
+    }
   }
 };
 </script>
-
-// Vue.component('product-row', {
-// 	template: `
-//    	<tr>
-//     <td><span :style="{color: product.stocked ? 'red': ''}">{{product.name}}</span></td>
-//         <td>{{product.price}}</td>
-//       </tr>
-//   `,
-//   props: ["product"]
-// })
-
-
-// Vue.component('search-bar', {
-//   template: `
-// 	<form>
-//         <input type="text" placeholder="Search..." />
-//         <p>
-//           <input type="checkbox" />
-//           Only show products in stock
-//         </p>
-//       </form>
-//   `
-// })
-
-// Vue.component('product-table', {
-//   template: `
-// 	<table>
-//         <thead>
-//           <tr>
-//             <th>Name</th>
-//             <th>Price</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//         	<product-row v-for="product in products" :key="product.name" :product="product"></product-row>
-//         </tbody>
-//       </table>
-//   `,
-//   props: {
-//   	products: {
-//     	type: Array
-//     }
-//   },
-//   data: function() {
-//   	return {
-//     	productCategories: [],
-//     }
-//   },
-//   created: function() {
-  	
-//   }
-// })
-
-
